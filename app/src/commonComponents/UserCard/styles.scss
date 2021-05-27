@@ -1,0 +1,9 @@
+.wrapper {
+  padding: 15px;
+  border: 2px solid black;
+  margin-bottom: 15px;
+}
+
+.wrapper:last-of-type {
+  margin-bottom: 0;
+}

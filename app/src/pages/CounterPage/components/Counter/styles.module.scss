@@ -1,0 +1,58 @@
+.header {
+  text-align: center;
+  color: blueviolet;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 50vh;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.evenBack {
+  background-color: aquamarine;
+}
+.oddBack {
+  background-color: aqua;
+}
+.screen {
+  max-width: 200px;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 15px;
+  background: black;
+  color: white;
+  border-radius: 15px;
+  font-size: 60px;
+}
+.controlArea {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5px;
+
+  .controlButton {
+    max-width: 250px;
+    width: 100%;
+    padding: 10px;
+    font-size: 40px;
+    border-radius: 10px;
+  }
+}
+.isEven {
+  border: 1px solid black;
+  padding: 20px 40px;
+  font-size: 40px;
+  border-radius: 10px;
+  background-color: yellow;
+}
