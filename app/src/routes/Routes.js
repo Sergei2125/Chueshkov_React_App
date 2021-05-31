@@ -4,6 +4,7 @@ import { ROUTES } from "./routeNames";
 import HomePageContainer from "../pages/HomePage/containers/HomePageContainer";
 import CounterPageContainer from "../pages/CounterPage/containers/CounterPageContainer";
 import LifecyclePageContainers from "../pages/LifecyclePage/containers/LifecyclePageContainers";
+import HookCounterContainer from "../pages/HookCounter/containers/HookCounterContainer";
 
 const Routes = () => {
   return (
@@ -18,6 +19,11 @@ const Routes = () => {
         exact
         path={ROUTES.LIFECYCLE_PAGE}
         component={LifecyclePageContainers}
+      />
+      <Route
+        exact
+        path={ROUTES.HOOK_COUNTER_PAGE}
+        component={HookCounterContainer}
       />
     </Switch>
   );

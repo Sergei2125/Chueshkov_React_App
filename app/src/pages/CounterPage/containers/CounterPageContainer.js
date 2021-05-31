@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Counter from "../components/Counter";
+import Counter from "../../../commonComponents/Counter";
 
 class CounterPageContainer extends Component {
   constructor(props) {
@@ -7,7 +7,6 @@ class CounterPageContainer extends Component {
 
     this.state = {
       countValue: 0,
-      parityType: "even",
     };
 
     console.log("CONSTRUCTOR");
@@ -17,8 +16,15 @@ class CounterPageContainer extends Component {
     console.log("DID MOUNT");
   }
 
-  componentDidUpdate() {
-    console.log(this.state.parityType);
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevState.countValue !== this.state.countValue) {
+      this.setState((state) => {
+        const value = this.state.countValue % 2 === 0;
+        return {
+          value,
+        };
+      });
+    }
   }
   shouldComponentUpdate() {
     console.log("SHOULD COMPONENT UPDATE");
@@ -32,30 +38,31 @@ class CounterPageContainer extends Component {
   handleIncrement = () => {
     this.setState((state) => {
       const incrementedValue = state.countValue + 1;
-      const isEven = incrementedValue % 2 === 0 ? "even" : "odd";
       return {
+        ...state,
         countValue: incrementedValue,
-        parityType: isEven,
       };
     });
   };
 
   handleDecrement = () => {
-    this.setState((state) => {
-      const incrementedValue = state.countValue - 1;
-      const isEven = incrementedValue % 2 === 0 ? "even" : "odd";
-      return {
-        countValue: incrementedValue,
-        parityType: isEven,
-      };
-    });
+    if (this.state.countValue > 0) {
+      this.setState((state) => {
+        const incrementedValue = state.countValue - 1;
+
+        return {
+          ...state,
+          countValue: incrementedValue,
+        };
+      });
+    }
   };
 
   handleReset = () => {
     this.setState((state) => {
       return {
+        ...state,
         countValue: 0,
-        parityType: "null",
       };
     });
   };
@@ -63,7 +70,6 @@ class CounterPageContainer extends Component {
     return (
       <Counter
         countValue={this.state.countValue}
-        parityType={this.state.parityType}
         handleIncrement={this.handleIncrement}
         handleDecrement={this.handleDecrement}
         handleReset={this.handleReset}

@@ -1,16 +1,16 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { ROUTES } from "../../../../routes/routeNames";
+import { ROUTES } from "../../routes/routeNames";
+import React from "react";
 
 import styles from "./styles.module.scss";
 
 const Counter = ({
   countValue,
-  parityType,
+
   handleIncrement,
   handleDecrement,
   handleReset,
-  handletIsEven,
 }) => {
   return (
     <div>
@@ -21,14 +21,12 @@ const Counter = ({
       <h1 className={styles.header}>Counter</h1>
       <div
         className={`${styles.wrapper} ${
-          parityType === "even" ? styles.evenBack : styles.oddBack
+          countValue % 2 === 0 ? styles.evenBack : styles.oddBack
         }`}
       >
         <div className={styles.screen}>{countValue}</div>
-        <div className={styles.isEven}>
-          {parityType === "null" ? (
-            <div>Reset</div>
-          ) : parityType === "even" ? (
+        <div className={styles.isEvenStyle}>
+          {countValue % 2 === 0 ? (
             <div>Введено четное число</div>
           ) : (
             <div>Введено нечетное число</div>
@@ -52,10 +50,9 @@ const Counter = ({
 
 Counter.propTypes = {
   countValue: PropTypes.number.isRequired,
-  parityType: PropTypes.string.isRequired,
   handleIncrement: PropTypes.func.isRequired,
   handleDecrement: PropTypes.func.isRequired,
   handleReset: PropTypes.func.isRequired,
 };
 
-export default Counter;
+export default React.memo(Counter);
