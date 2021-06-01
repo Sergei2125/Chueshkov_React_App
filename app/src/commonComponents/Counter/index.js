@@ -1,23 +1,16 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import { ROUTES } from "../../routes/routeNames";
 import React from "react";
 
 import styles from "./styles.module.scss";
 
 const Counter = ({
   countValue,
-
   handleIncrement,
   handleDecrement,
   handleReset,
 }) => {
   return (
     <div>
-      <Link to={ROUTES.HOME_PAGE}>
-        <button> backToHomePage</button>
-      </Link>
-
       <h1 className={styles.header}>Counter</h1>
       <div
         className={`${styles.wrapper} ${

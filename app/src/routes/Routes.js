@@ -5,6 +5,7 @@ import HomePageContainer from "../pages/HomePage/containers/HomePageContainer";
 import CounterPageContainer from "../pages/CounterPage/containers/CounterPageContainer";
 import LifecyclePageContainers from "../pages/LifecyclePage/containers/LifecyclePageContainers";
 import HookCounterContainer from "../pages/HookCounter/containers/HookCounterContainer";
+import AddCounterPagecontainers from "../pages/AddCounterPage/containers/AddCounterPagecontainers";
 
 const Routes = () => {
   return (
@@ -17,13 +18,13 @@ const Routes = () => {
       />
       <Route
         exact
-        path={ROUTES.LIFECYCLE_PAGE}
-        component={LifecyclePageContainers}
+        path={ROUTES.HOOK_COUNTER_PAGE}
+        component={HookCounterContainer}
       />
       <Route
         exact
-        path={ROUTES.HOOK_COUNTER_PAGE}
-        component={HookCounterContainer}
+        path={ROUTES.ADD_COUNTER_PAGE}
+        component={AddCounterPagecontainers}
       />
     </Switch>
   );
