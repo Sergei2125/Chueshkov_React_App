@@ -8,6 +8,7 @@ const Counter = ({
   handleIncrement,
   handleDecrement,
   handleReset,
+  handleCloseCounter,
 }) => {
   return (
     <div>
@@ -17,6 +18,9 @@ const Counter = ({
           countValue % 2 === 0 ? styles.evenBack : styles.oddBack
         }`}
       >
+        <button className={styles.closeButton} onClick={handleCloseCounter}>
+          Close
+        </button>
         <div className={styles.screen}>{countValue}</div>
         <div className={styles.isEvenStyle}>
           {countValue % 2 === 0 ? (
@@ -46,6 +50,7 @@ Counter.propTypes = {
   handleIncrement: PropTypes.func.isRequired,
   handleDecrement: PropTypes.func.isRequired,
   handleReset: PropTypes.func.isRequired,
+  handleCloseCounter: PropTypes.func.isRequired,
 };
 
 export default React.memo(Counter);

@@ -3,9 +3,9 @@ import { Switch, Route } from "react-router-dom";
 import { ROUTES } from "./routeNames";
 import HomePageContainer from "../pages/HomePage/containers/HomePageContainer";
 import CounterPageContainer from "../pages/CounterPage/containers/CounterPageContainer";
-import LifecyclePageContainers from "../pages/LifecyclePage/containers/LifecyclePageContainers";
 import HookCounterContainer from "../pages/HookCounter/containers/HookCounterContainer";
 import AddCounterPagecontainers from "../pages/AddCounterPage/containers/AddCounterPagecontainers";
+import FormPageContainer from "../pages/FormPage/containers/FormPageContainer";
 
 const Routes = () => {
   return (
@@ -26,6 +26,7 @@ const Routes = () => {
         path={ROUTES.ADD_COUNTER_PAGE}
         component={AddCounterPagecontainers}
       />
+      <Route exact path={ROUTES.FORM_PAGE} component={FormPageContainer} />
     </Switch>
   );
 };

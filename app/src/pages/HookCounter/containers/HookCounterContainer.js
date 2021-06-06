@@ -17,7 +17,7 @@ const HookCounterContainer = () => {
 
   const handleReset = useCallback(() => {
     setCountValue(0);
-  }, [countValue]);
+  }, []);
 
   useEffect(() => {
     console.log("Hello");
