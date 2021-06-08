@@ -6,6 +6,7 @@ import CounterPageContainer from "../pages/CounterPage/containers/CounterPageCon
 import HookCounterContainer from "../pages/HookCounter/containers/HookCounterContainer";
 import AddCounterPagecontainers from "../pages/AddCounterPage/containers/AddCounterPagecontainers";
 import FormPageContainer from "../pages/FormPage/containers/FormPageContainer";
+import TodoListPageContainer from "../pages/TodoList/containers/TodoListPageContainer";
 
 const Routes = () => {
   return (
@@ -27,6 +28,11 @@ const Routes = () => {
         component={AddCounterPagecontainers}
       />
       <Route exact path={ROUTES.FORM_PAGE} component={FormPageContainer} />
+      <Route
+        exact
+        path={ROUTES.TODOLIST_PAGE}
+        component={TodoListPageContainer}
+      />
     </Switch>
   );
 };

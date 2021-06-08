@@ -9,7 +9,7 @@ const FormLayout = ({ formValues, handleInputChange, onSubmit }) => {
           name="name"
           value={formValues.name}
           type="text"
-          onChange={handleInputChange}
+          onChange={(event) => handleInputChange(event)}
         />
       </label>
       <label>
