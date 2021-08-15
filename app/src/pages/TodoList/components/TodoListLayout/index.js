@@ -1,4 +1,6 @@
 import React from "react";
+import TodoListTask from "../../../../commonComponents/TodoListTask";
+import TodoListTaskCorrect from "../../../../commonComponents/TodoListTaskCorrect";
 
 import styles from "./styles.module.scss";
 
@@ -9,6 +11,10 @@ const TodoListLayout = ({
   removeAllTask,
   listTask,
   removeOneTask,
+  correctOneTask,
+  handleTaskCorrectForm,
+  saveNewTask,
+  textValueCorrect,
 }) => {
   return (
     <div className={styles.wrapper}>
@@ -19,7 +25,7 @@ const TodoListLayout = ({
           <input type="text" value={textValue} onChange={handleTaskCreate} />
         </form>
         <button onClick={addTaskToList} className={styles.btn}>
-          Сохранить
+          Добавить задачу
         </button>
         <button onClick={removeAllTask} className={styles.btn}>
           Удалить все
@@ -27,21 +33,28 @@ const TodoListLayout = ({
       </div>
       <div className={styles.tableflex}>
         <h2 className={styles.header}>Задачи:</h2>
-        <ul>
+        <ol>
           {listTask.map((element, index) => {
-            return (
-              <li key={index}>
-                {element.textValue}
-                <button
-                  onClick={() => removeOneTask(index)}
-                  className={styles.btn}
-                >
-                  Удалить
-                </button>
-              </li>
-            );
+            if (element.isCorrect === false) {
+              return (
+                <TodoListTask
+                  key={index}
+                  correctOneTask={() => correctOneTask(index)}
+                  removeOneTask={() => removeOneTask(index)}
+                  textValue={element.textValue}
+                />
+              );
+            } else
+              return (
+                <TodoListTaskCorrect
+                  key={index}
+                  textValueCorrect={element.textValueCorrect}
+                  handleTaskCorrectForm={handleTaskCorrectForm}
+                  saveNewTask={() => saveNewTask(index)}
+                />
+              );
           })}
-        </ul>
+        </ol>
       </div>
     </div>
   );
